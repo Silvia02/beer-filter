@@ -1,0 +1,455 @@
+/* //// Global Styles \\\\ */
+
+$white: rgba(255, 255, 255, 1);
+$darkGray: rgba(0, 0, 0, 0.75);
+$transOrange: rgba(245, 132, 20, 0.75);
+$ultraTransOrange: rgba(245, 132, 20, 0.25);
+$opaqueOrange: rgba(245, 132, 20, 1);
+
+// Predefined Break-points
+$small-width: 480px;
+$medium-width: 768px;
+$large-width: 1024px;
+
+@mixin extra-small {
+  @media (max-width: #{$small-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-down {
+  @media (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-only {
+  @media (min-width: #{$small-width}) and (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-up {
+  @media (min-width: #{$small-width}) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin medium-up {
+  @media (min-width: #{$medium-width}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+//Changing The Default Settings..
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+  // Changing the body here
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-size: 45px;
+    display: block;
+    position: relative;
+    background-color: #303032;
+  }
+}
+
+body:after {
+  content: "";
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://shanghai-paper.com/wp-content/uploads/2020/06/Beer-in-China.jpg");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+}
+
+/* Typography imported from Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+p,
+a {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* Styles for the hero image */
+.hero {
+  /* Photo by mnm.all on Unsplash */
+  background: url("https://images.unsplash.com/photo-1518176258769-f227c798150e")
+    center;
+  background-size: cover;
+  padding: 4rem 2rem;
+  /* grid styles */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+}
+
+.hero > * {
+  color: white;
+}
+
+.hero > h1 {
+  font-size: 4rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.block {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 50px 30px;
+}
+.inputFild {
+  font: 30px/1 "Open Sans", sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 500px;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  padding: 10px 11px 11px 11px;
+  border-radius: 3px;
+  outline: none;
+  background-image: url("https://cdn.bitdegree.org/learn/search-icon.png?229dfb2d");
+  background-size: 20px;
+  background-position: 10px 15px;
+  background-repeat: no-repeat;
+  padding: 12px 50px;
+}
+
+/* breweries styles */
+.breweries-wrapper {
+  list-style: none;
+  padding: 0;
+  margin: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+html {
+  @include small-down {
+    width: fit-content;
+    background-color: hotpink;
+  }
+}
+
+.card {
+  padding: 40px;
+  padding-bottom: 1rem;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+// .card > :last-child {
+//   margin-bottom: 0;
+// }
+
+.card h3 {
+  color: white;
+  padding: 0.75rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.card img {
+  //border-radius: 0.5rem 0.5rem 0 0;
+  height: 10em;
+  padding: 50px;
+  width: auto;
+  display: inline-block;
+  transform: rotateX(21deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+  box-shadow: -80px 40px 10px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s;
+  //transform-style: preserve-3d;
+}
+.card:hover img {
+  transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.singlebeer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+.button-back {
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 30px;
+  min-width: 120px;
+  margin-left: 10%;
+  margin-top: 50px;
+  font-size: 1.9rem;
+}
+button:hover {
+  background-color: goldenrod;
+  border: none;
+  transform: translateY(-10px);
+}
+
+.beer-item {
+  list-style: none;
+  max-width: 100%;
+  margin-bottom: 100px;
+  img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    box-shadow: -80px 60px 15px 5px rgba(0, 0, 0, 0.4);
+  }
+  img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    margin-bottom: 80px;
+  }
+
+  p {
+    font-size: 3rem;
+    color: white;
+  }
+  span {
+    font-size: 2rem;
+    color: white;
+  }
+  li {
+    line-height: 1.8;
+    color: goldenrod;
+    font-size: 2rem;
+    width: 60%;
+  }
+}
+
+.beer-item li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: white;
+  font-weight: 900;
+  display: inline-block;
+  width: 2em;
+  margin-left: -1em;
+}
+
+/* footer */
+footer {
+  //position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  height: auto;
+  padding-top: 40px;
+  color: #fff;
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 2rem;
+  color: #cacdd2;
+}
+.socials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li {
+  margin: 0 10px;
+}
+.socials a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+}
+.socials a i {
+  font-size: 2rem;
+  width: 20px;
+
+  transition: color 0.4s ease;
+}
+.socials a:hover i {
+  color: gold;
+}
+
+.footer-bottom {
+  background: #000;
+  width: 100vw;
+  padding: 20px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.footer-bottom p {
+  float: left;
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+.footer-bottom p a {
+  color: #44bae8;
+  font-size: 16px;
+  text-decoration: none;
+}
+.footer-bottom span {
+  text-transform: uppercase;
+  opacity: 0.4;
+  font-weight: 200;
+}
+.footer-menu {
+  float: right;
+}
+.footer-menu ul {
+  display: flex;
+}
+.footer-menu ul li {
+  padding-right: 10px;
+  display: block;
+}
+.footer-menu ul li a {
+  color: #cfd2d6;
+  text-decoration: none;
+}
+.footer-menu ul li a:hover {
+  color: #27bcda;
+}
+
+@media (max-width: 500px) {
+  .footer-menu ul {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.separator {
+  width: 65px;
+  margin: 0 0.25rem;
+  color: black;
+  font-size: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+}
+.separator:hover {
+  background-color: gold;
+  color: black;
+}
+
+.pagination {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
+.paginationWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pageItem {
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+}
+.pageItem:hover {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+}
+
+.active {
+  background-color: gold;
+  color: white;
+  border: none;
+}
+
+.btn {
+  background-color: #fff;
+  border: 1px solid gold;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn:hover {
+  background-color: gold;
+}
+.btn--icon {
+  height: 24px;
+  width: 24px;
+  stroke: gold;
+}
+.btn--icon:hover {
+  stroke: #fff;
+}
