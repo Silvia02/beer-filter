@@ -1,10 +1,10 @@
-/* //// Global Styles \\\\ */
+/* //// Colors Styles \\\\ */
 
 $white: rgba(255, 255, 255, 1);
 $darkGray: rgba(0, 0, 0, 0.75);
-$transOrange: rgba(245, 132, 20, 0.75);
-$ultraTransOrange: rgba(245, 132, 20, 0.25);
-$opaqueOrange: rgba(245, 132, 20, 1);
+$transOrange: goldenrod;
+$goldOrange: gold;
+$black: black;
 
 // Predefined Break-points
 $small-width: 480px;
@@ -69,7 +69,6 @@ $large-width: 1024px;
     font-size: 45px;
     display: block;
     position: relative;
-    background-color: #303032;
   }
 }
 
@@ -120,7 +119,7 @@ a {
 }
 
 .hero > * {
-  color: white;
+  color: $white;
 }
 
 .hero > h1 {
@@ -133,7 +132,7 @@ a {
   max-width: 900px;
   padding: 50px 30px;
 }
-.inputFild {
+.inputField {
   font: 30px/1 "Open Sans", sans-serif;
   color: #333;
   -webkit-font-smoothing: antialiased;
@@ -165,7 +164,6 @@ a {
 html {
   @include small-down {
     width: fit-content;
-    background-color: hotpink;
   }
 }
 
@@ -181,7 +179,7 @@ html {
 // }
 
 .card h3 {
-  color: white;
+  color: $white;
   padding: 0.75rem;
   font-size: 2rem;
   margin-top: 1rem;
@@ -210,8 +208,8 @@ html {
   margin-top: 40px;
 }
 .button-back {
-  background-color: black;
-  color: #fff;
+  background-color: $black;
+  color: $white;
   border: none;
   border-radius: 10px;
   padding: 15px;
@@ -222,7 +220,7 @@ html {
   font-size: 1.9rem;
 }
 button:hover {
-  background-color: goldenrod;
+  background-color: transOrange;
   border: none;
   transform: translateY(-10px);
 }
@@ -250,15 +248,15 @@ button:hover {
 
   p {
     font-size: 3rem;
-    color: white;
+    color: $white;
   }
   span {
     font-size: 2rem;
-    color: white;
+    color: $white;
   }
   li {
     line-height: 1.8;
-    color: goldenrod;
+    color: transOrange;
     font-size: 2rem;
     width: 60%;
   }
@@ -266,7 +264,7 @@ button:hover {
 
 .beer-item li::before {
   content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: white;
+  color: $white;
   font-weight: 900;
   display: inline-block;
   width: 2em;
@@ -279,10 +277,10 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #111;
+  background: $darkGray;
   height: auto;
   padding-top: 40px;
-  color: #fff;
+  color: $white;
 }
 .footer-content {
   display: flex;
@@ -316,7 +314,7 @@ footer {
 }
 .socials a {
   text-decoration: none;
-  color: #fff;
+  color: $white;
   padding: 5px;
 }
 .socials a i {
@@ -326,11 +324,11 @@ footer {
   transition: color 0.4s ease;
 }
 .socials a:hover i {
-  color: gold;
+  color: $goldOrange;
 }
 
 .footer-bottom {
-  background: #000;
+  background: $black;
   width: 100vw;
   padding: 20px;
   padding-bottom: 40px;
@@ -370,7 +368,7 @@ footer {
   color: #27bcda;
 }
 
-@media (max-width: 500px) {
+@include small-down {
   .footer-menu ul {
     display: flex;
     margin-top: 10px;
@@ -381,15 +379,15 @@ footer {
 .separator {
   width: 65px;
   margin: 0 0.25rem;
-  color: black;
+  color: $black;
   font-size: 2rem;
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
 }
 .separator:hover {
-  background-color: gold;
-  color: black;
+  background-color: $goldOrange;
+  color: $black;
 }
 
 .pagination {
@@ -416,24 +414,24 @@ footer {
   justify-content: center;
   gap: 10px;
   font-size: 2rem;
-  background-color: black;
-  color: white;
+  background-color: $black;
+  color: $white;
 }
 .pageItem:hover {
-  background-color: goldenrod;
-  color: white;
+  background-color: $transOrange;
+  color: $white;
   border: none;
 }
 
 .active {
-  background-color: gold;
-  color: white;
+  background-color: $goldOrange;
+  color: $white;
   border: none;
 }
 
 .btn {
-  background-color: #fff;
-  border: 1px solid gold;
+  background-color: $white;
+  border: 1px solid $goldOrange;
   height: 65px;
   width: 65px;
   border-radius: 50%;
@@ -443,13 +441,13 @@ footer {
   justify-content: center;
 }
 .btn:hover {
-  background-color: gold;
+  background-color: $goldOrange;
 }
 .btn--icon {
   height: 24px;
   width: 24px;
-  stroke: gold;
+  stroke: $goldOrange;
 }
 .btn--icon:hover {
-  stroke: #fff;
+  stroke: $white;
 }

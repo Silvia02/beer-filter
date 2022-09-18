@@ -52,7 +52,7 @@ const Search: React.FC = () => {
               type="text"
               name="search"
               placeholder="search"
-              className="inputFild"
+              className="inputField"
               value={search}
             />
             {/* <a href="#breweries">Browse Breweries</a> */}
