@@ -69,6 +69,7 @@ $large-width: 1024px;
     font-size: 45px;
     display: block;
     position: relative;
+    background-color: $darkGray;
   }
 }
 
@@ -220,7 +221,7 @@ html {
   font-size: 1.9rem;
 }
 button:hover {
-  background-color: transOrange;
+  background-color: $transOrange;
   border: none;
   transform: translateY(-10px);
 }
@@ -256,7 +257,7 @@ button:hover {
   }
   li {
     line-height: 1.8;
-    color: transOrange;
+    color: $transOrange;
     font-size: 2rem;
     width: 60%;
   }
