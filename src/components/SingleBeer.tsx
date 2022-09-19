@@ -41,7 +41,7 @@ export const SingleBeers: React.FunctionComponent<SingleBeersProps> = () => {
               return (
                 <>
                   <img src={beer?.image_url} />
-                  <p>Name: {beer.name}</p>
+                  <p>{beer.name}</p>
                   <span>Matches with:</span>
                   {beer.food_pairing?.map((foodPairing) => {
                     return <li>{foodPairing}</li>;

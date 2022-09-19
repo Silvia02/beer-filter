@@ -190,7 +190,7 @@ html {
 
 .card img {
   //border-radius: 0.5rem 0.5rem 0 0;
-  height: 10em;
+  height: 8em;
   padding: 50px;
   width: auto;
   display: inline-block;
@@ -198,6 +198,11 @@ html {
   box-shadow: -80px 40px 10px 15px rgba(0, 0, 0, 0.4);
   transition: all 0.4s;
   //transform-style: preserve-3d;
+
+  img{
+    // width: 30%;
+    // height: 30%;
+  }
 }
 .card:hover img {
   transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
@@ -251,13 +256,15 @@ button:hover {
   }
 
   p {
-    font-size: 3rem;
+    font-size: 2rem;
     color: $white;
     text-align: start;
+    margin-top: 50px;
   }
   span {
     font-size: 2rem;
     color: $white;
+
   }
   li {
     line-height: 1.8;
