@@ -7,7 +7,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 const App = () => {
   return (
     <>
-      <HashRouter>
+      <HashRouter basename="/beer-pagination">
         <Routes>
           <Route path="/singlebeer/:id" element={<SingleBeers  />} />
           <Route path="/" element={<Home />} />
