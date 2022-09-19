@@ -156,59 +156,85 @@ a {
   padding: 12px 50px;
 }
 
-/* breweries styles */
-.breweries-wrapper {
-  list-style: none;
-  padding: 0;
-  margin: 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 1.5rem;
+.main {
+  margin: 0 auto;
 }
 
-html {
-  @include small-down {
-    width: fit-content;
-  }
+img {
+  height: auto;
+  vertical-align: middle;
+  height: 6em;
+  padding: 10px;
+  width: auto;
+  transform: rotateX(21deg) rotateZ(-60deg) translate3d(-50px, 0px, 70px);
+  box-shadow: -50px 20px 10px 3px rgb(0 0 0 / 40%);
+  transition: all 0.4s;
+}
+/* Cards styles */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.cards-item {
+  display: flex;
+  padding: 1rem;
+  text-align: center;
 }
 
 .card {
-  text-align: center;
-  transform-style: preserve-3d;
+  //background-color: white;
+  border-radius: 0.25rem;
+  //box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  //overflow: hidden;
+}
+.card-content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
+}
+.card-text {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
 }
 
 // .card > :last-child {
 //   margin-bottom: 0;
 // }
 
-.card h3 {
-  color: $white;
-  padding: 0.75rem;
-  font-size: 2rem;
-  margin-top: 1rem;
-}
-
-.card img {
-  //border-radius: 0.5rem 0.5rem 0 0;
-  height: 8em;
-  padding: 50px;
-  width: auto;
-  display: inline-block;
-  transform: rotateX(21deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
-  box-shadow: -80px 40px 10px 15px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s;
-  //transform-style: preserve-3d;
-
-  img{
-    // width: 30%;
-    // height: 30%;
-  }
-}
 .card:hover img {
   transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
+.cards-item img {
+  @include small-up {
+    //width: 50%;
+  }
+}
+
+.cards-item img{
+  @include small-down {
+    //width: 50%;
+  }
+}
+
+// html {
+//   @include small-down {
+//     width: fit-content;
+//   }
+// }
+
+// SINGLE BEER PAGE STYLES
 .singlebeer-container {
   display: flex;
   justify-content: center;
@@ -243,7 +269,6 @@ button:hover {
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     text-align: center;
-    width: 30%;
     display: flex;
     justify-content: center;
     box-shadow: -80px 60px 15px 5px rgba(0, 0, 0, 0.4);
@@ -264,7 +289,6 @@ button:hover {
   span {
     font-size: 2rem;
     color: $white;
-
   }
   li {
     line-height: 1.8;
@@ -273,7 +297,9 @@ button:hover {
     text-align: start;
   }
 }
-.beer-item li, span, p {
+.beer-item li,
+span,
+p {
   @include small-down {
     font-size: 5vw;
     margin-left: 15px;

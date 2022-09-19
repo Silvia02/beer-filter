@@ -42,67 +42,68 @@ const Search: React.FC = () => {
   }, [page]);
 
   return (
-    <>
-      <>
-        <section className="hero">
-          <h1>You thirsty?</h1>
-          <div className="block">
-            <input
-              onChange={handleChange}
-              type="text"
-              name="search"
-              placeholder="search"
-              className="inputField"
-              value={search}
-            />
-            {/* <a href="#breweries">Browse Breweries</a> */}
-          </div>
-        </section>
+    <main className="main">
+      <section className="hero">
+        <h1>You thirsty?</h1>
+        <div className="block">
+          <input
+            onChange={handleChange}
+            type="text"
+            name="search"
+            placeholder="search"
+            className="inputField"
+            value={search}
+          />
+          {/* <a href="#breweries">Browse Breweries</a> */}
+        </div>
+      </section>
 
-        <ul className="breweries-wrapper">
-          {beer &&
-            beer?.map((beer) => {
-              if (
-                search === "" ||
-                beer?.name.toLowerCase().includes(search.toLowerCase())
-              ) {
-                return (
-                  <li className="card">
+      <ul className="cards">
+        {beer &&
+          beer?.map((beer) => {
+            if (
+              search === "" ||
+              beer?.name.toLowerCase().includes(search.toLowerCase())
+            ) {
+              return (
+                <li className="cards-item">
+                  <div className="card">
                     <Link to={`/singlebeer/${beer["id"]}`}>
                       <img src={beer.image_url} />
                     </Link>
+                    <div className="card-content">
+                      <h2 className="card-text">{beer?.name}</h2>
+                    </div>
+                  </div>
+                </li>
+              );
+            }
+          })}
+      </ul>
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        handlePagination={handlePages}
+      />
 
-                    <h3>{beer?.name}</h3>
-                  </li>
-                );
-              }
-            })}
-        </ul>
-        <Pagination
-          page={page}
-          totalPages={totalPages}
-          handlePagination={handlePages}
-        />
-
-        <footer>
-          <div className="footer-content">
-            <p>copyright &copy;2022 Made with ♥</p>
-            <ul className="socials">
-              <li>
-                <a href="https://github.com/Silvia02">
-                  <i className="fa fa-github-square"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/silvia-morais-b99106159/">
-                  <i className="fa fa-linkedin-square"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </footer>
-      </>
-    </>
+      <footer>
+        <div className="footer-content">
+          <p>copyright &copy;2022 Made with ♥</p>
+          <ul className="socials">
+            <li>
+              <a href="https://github.com/Silvia02">
+                <i className="fa fa-github-square"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/silvia-morais-b99106159/">
+                <i className="fa fa-linkedin-square"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>
   );
 };
 
