@@ -42,8 +42,8 @@ const Search: React.FC = () => {
   }, [page]);
 
   useEffect(() => {
-    //filter will only return elements where the function you
-    //specify returns a value of true for each element passed to the function.
+    //filter will only return elements where the function I specify
+    //and returns a value of true for each element passed to the function.
     const filteredBeer = beer.filter((bb) =>
       bb.name?.toLowerCase().includes(search)
     );
@@ -74,7 +74,7 @@ const Search: React.FC = () => {
             <li className="cardsItem" key={key}>
               <div className="card">
                 <Link to={`/singlebeer/${beers["id"]}`}>
-                  <img src={beers?.image_url} />
+                  <img src={beers?.image_url} className="images" />
                 </Link>
                 <div className="cardContent">
                   <h2 className="cardText">{beers?.name}</h2>
