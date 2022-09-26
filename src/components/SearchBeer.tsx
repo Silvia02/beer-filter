@@ -83,7 +83,7 @@ const Search: React.FC = () => {
             </li>
           ))
         ) : (
-          <p>{search} not found!</p>
+          <p className="noResult">Sorry, no result found for: {search}</p>
         )}
       </ul>
       <Pagination

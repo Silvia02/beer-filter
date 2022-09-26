@@ -181,6 +181,11 @@ a {
   padding: 20px;
 }
 
+.noResult{
+  color: $white;
+  font-size: 2rem;
+}
+
 .cardsItem {
   //border: 2px solid white;
   display: flex;
@@ -406,6 +411,10 @@ footer {
   gap: 16px;
   margin-top: 150px;
   margin-bottom: 30px;
+
+  @include small-down {
+   margin-top: 58px;
+  }
 }
 .paginationWrapper {
   display: flex;
@@ -415,6 +424,8 @@ footer {
 
   @include small-down {
     margin: 40px;
+    height: auto;
+    width: 58%;
   }
 }
 
