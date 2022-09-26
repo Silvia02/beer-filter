@@ -1,4 +1,3 @@
-import { error } from "console";
 import React from "react";
 import { Pagination } from "./Pagination";
 import { useState, useEffect } from "react";
@@ -9,8 +8,9 @@ const Search: React.FC = () => {
   const [search, setSearch] = useState("");
   const [beer, setBeer] = useState<BeerList[]>([]);
   const [page, setPage] = useState(1);
+  const [results, setResults] = useState([]) as any;
   const totalPages = 10;
-  const ItemPerPage = 6;
+  const ItemPerPage = 10;
   const handlePages = (updatedPage: number) => setPage(updatedPage);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,15 +31,24 @@ const Search: React.FC = () => {
         }
       })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setBeer(data);
       });
   };
 
   useEffect(() => {
     BeersData();
-    console.log(beer);
+    //console.log(beer);
   }, [page]);
+
+  useEffect(() => {
+    //filter will only return elements where the function you
+    //specify returns a value of true for each element passed to the function.
+    const filteredBeer = beer.filter((bb) =>
+      bb.name?.toLowerCase().includes(search)
+    );
+    setResults(filteredBeer);
+  }, [search, beer]);
 
   return (
     <main className="main">
@@ -54,31 +63,28 @@ const Search: React.FC = () => {
             className="inputField"
             value={search}
           />
-          {/* <a href="#breweries">Browse Breweries</a> */}
         </div>
       </section>
 
+      {/* <p>Result: {results.length}</p> */}
+
       <ul className="cards">
-        {beer &&
-          beer?.map((beer) => {
-            if (
-              search === "" ||
-              beer?.name.toLowerCase().includes(search.toLowerCase())
-            ) {
-              return (
-                <li className="cards-item">
-                  <div className="card">
-                    <Link to={`/singlebeer/${beer["id"]}`}>
-                      <img src={beer.image_url} />
-                    </Link>
-                    <div className="card-content">
-                      <h2 className="card-text">{beer?.name}</h2>
-                    </div>
-                  </div>
-                </li>
-              );
-            }
-          })}
+        {results.length > 0 ? (
+          results.map((beers: any, key: any) => (
+            <li className="cardsItem" key={key}>
+              <div className="card">
+                <Link to={`/singlebeer/${beers["id"]}`}>
+                  <img src={beers?.image_url} />
+                </Link>
+                <div className="cardContent">
+                  <h2 className="cardText">{beers?.name}</h2>
+                </div>
+              </div>
+            </li>
+          ))
+        ) : (
+          <p>{search} not found!</p>
+        )}
       </ul>
       <Pagination
         page={page}
@@ -87,7 +93,7 @@ const Search: React.FC = () => {
       />
 
       <footer>
-        <div className="footer-content">
+        <div className="footerContent">
           <p>copyright &copy;2022 Made with ♥</p>
           <ul className="socials">
             <li>

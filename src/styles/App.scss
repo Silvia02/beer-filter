@@ -61,7 +61,6 @@ $large-width: 1024px;
   box-sizing: border-box;
 
   // Changing the body here
-
   body {
     width: 100%;
     min-height: 100vh;
@@ -180,7 +179,7 @@ img {
   justify-content: center;
 }
 
-.cards-item {
+.cardsItem {
   display: flex;
   padding: 1rem;
   text-align: center;
@@ -194,12 +193,12 @@ img {
   flex-direction: column;
   //overflow: hidden;
 }
-.card-content {
+.cardContent {
   padding: 1rem;
   background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
 }
-.card-text {
-  color: #ffffff;
+.cardText {
+  color: $white;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -222,7 +221,7 @@ img {
   }
 }
 
-.cards-item img{
+.cards-item img {
   @include small-down {
     //width: 50%;
   }
@@ -325,20 +324,20 @@ footer {
   padding-top: 40px;
   color: $white;
 }
-.footer-content {
+.footerContent {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
 }
-.footer-content h3 {
+.footerContent h3 {
   font-size: 3rem;
   font-weight: 500;
   text-transform: capitalize;
   line-height: 3rem;
 }
-.footer-content p {
+.footerContent p {
   max-width: 500px;
   margin: 10px auto;
   line-height: 28px;
@@ -368,55 +367,6 @@ footer {
 }
 .socials a:hover i {
   color: $goldOrange;
-}
-
-.footer-bottom {
-  background: $black;
-  width: 100vw;
-  padding: 20px;
-  padding-bottom: 40px;
-  text-align: center;
-}
-.footer-bottom p {
-  float: left;
-  font-size: 14px;
-  word-spacing: 2px;
-  text-transform: capitalize;
-}
-.footer-bottom p a {
-  color: #44bae8;
-  font-size: 16px;
-  text-decoration: none;
-}
-.footer-bottom span {
-  text-transform: uppercase;
-  opacity: 0.4;
-  font-weight: 200;
-}
-.footer-menu {
-  float: right;
-}
-.footer-menu ul {
-  display: flex;
-}
-.footer-menu ul li {
-  padding-right: 10px;
-  display: block;
-}
-.footer-menu ul li a {
-  color: #cfd2d6;
-  text-decoration: none;
-}
-.footer-menu ul li a:hover {
-  color: #27bcda;
-}
-
-@include small-down {
-  .footer-menu ul {
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
 }
 
 .separator {
