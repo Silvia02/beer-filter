@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/beer-pagination/static/css/main.8b5b8e5a.css",
-    "main.js": "/beer-pagination/static/js/main.0c4f535e.js",
+    "main.css": "/beer-pagination/static/css/main.bb9c2955.css",
+    "main.js": "/beer-pagination/static/js/main.a1a5a28c.js",
     "static/js/787.273e7e90.chunk.js": "/beer-pagination/static/js/787.273e7e90.chunk.js",
     "index.html": "/beer-pagination/index.html",
-    "main.8b5b8e5a.css.map": "/beer-pagination/static/css/main.8b5b8e5a.css.map",
-    "main.0c4f535e.js.map": "/beer-pagination/static/js/main.0c4f535e.js.map",
+    "main.bb9c2955.css.map": "/beer-pagination/static/css/main.bb9c2955.css.map",
+    "main.a1a5a28c.js.map": "/beer-pagination/static/js/main.a1a5a28c.js.map",
     "787.273e7e90.chunk.js.map": "/beer-pagination/static/js/787.273e7e90.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b5b8e5a.css",
-    "static/js/main.0c4f535e.js"
+    "static/css/main.bb9c2955.css",
+    "static/js/main.a1a5a28c.js"
   ]
 }
