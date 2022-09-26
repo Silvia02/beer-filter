@@ -383,13 +383,17 @@ footer {
 }
 
 .separator {
-  width: 65px;
+  width: 45px;
   margin: 0 0.25rem;
   color: $black;
   font-size: 2rem;
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
+
+  @include small-down {
+    width: 20px;
+  }
 }
 .separator:hover {
   background-color: $goldOrange;
@@ -405,23 +409,28 @@ footer {
 }
 .paginationWrapper {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  gap: 5px;
   justify-content: center;
+  border: none;
+
+  @include small-down {
+   margin: 40px;
+  }
 }
 
 .pageItem {
-  height: 65px;
-  width: 65px;
+  height: 58px;
+  width: 58px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 2rem;
+  font-size: 1rem;
   background-color: $black;
   color: $white;
+  border: none;
 }
 .pageItem:hover {
   background-color: $transOrange;
@@ -438,8 +447,8 @@ footer {
 .btn {
   background-color: $white;
   border: 1px solid $goldOrange;
-  height: 65px;
-  width: 65px;
+  height: 58px;
+  width: 58px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
