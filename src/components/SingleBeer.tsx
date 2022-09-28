@@ -31,16 +31,16 @@ export const SingleBeers: React.FunctionComponent<SingleBeersProps> = () => {
 
   return (
     <>
-      <button className="button-back" onClick={handleNavigation}>
-        Back
-      </button>
+      <span className="button-back">
+        <button onClick={handleNavigation}>Back</button>
+      </span>
       <div className="singlebeer-container">
         <div className="beer-item">
           {singleBeer &&
             singleBeer.map((beer) => {
               return (
                 <>
-                  <img src={beer?.image_url} className="images"/>
+                  <img src={beer?.image_url} className="images" />
                   <p>{beer.name}</p>
                   <span>Matches with:</span>
                   {beer.food_pairing?.map((foodPairing) => {

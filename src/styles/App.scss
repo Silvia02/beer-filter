@@ -181,7 +181,7 @@ a {
   padding: 20px;
 }
 
-.noResult{
+.noResult {
   color: $white;
   font-size: 2rem;
 }
@@ -258,7 +258,7 @@ a {
   align-items: center;
   margin-top: 40px;
 }
-.button-back {
+.button-back button {
   background-color: $black;
   color: $white;
   border: none;
@@ -269,8 +269,10 @@ a {
   margin-left: 10%;
   margin-top: 50px;
   font-size: 1.9rem;
+  cursor: pointer;
 }
-button:hover {
+
+.button-back button:hover {
   background-color: $transOrange;
   border: none;
   transform: translateY(-10px);
@@ -401,7 +403,7 @@ footer {
   }
 }
 .separator:hover {
-  background-color: $goldOrange;
+  background-color: transparent;
   color: $black;
 }
 
@@ -413,7 +415,7 @@ footer {
   margin-bottom: 30px;
 
   @include small-down {
-   margin-top: 58px;
+    margin-top: 58px;
   }
 }
 .paginationWrapper {
@@ -425,7 +427,6 @@ footer {
   @include small-down {
     margin: 40px;
     height: auto;
-    width: 58%;
   }
 }
 
@@ -439,24 +440,45 @@ footer {
   justify-content: center;
   gap: 10px;
   font-size: 1rem;
-  background-color: $black;
-  color: $white;
+  background-image: linear-gradient(
+    to right,
+    #f5ce62,
+    #e43603,
+    #fa7199,
+    #e85a19
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  color: $black;
   border: none;
+  background-size: 300% 100%;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   @include small-down {
-    height: auto;
+    padding: 6px;
+    margin: auto;
   }
 }
 .pageItem:hover {
   background-color: $transOrange;
   color: $white;
   border: none;
+  background-position: 100% 0;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
-
-.active {
+.pageItem:focus {
+  outline: none;
+}
+ .active{
   background-color: $goldOrange;
-  color: $white;
+  color: $black;
   border: none;
+  background-image: none;
 }
 
 .btn {
