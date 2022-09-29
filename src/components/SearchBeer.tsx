@@ -5,6 +5,7 @@ import { BeerList } from "../interfaces/beerInterface";
 import { Link } from "react-router-dom";
 
 const Search: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [beer, setBeer] = useState<BeerList[]>([]);
   const [page, setPage] = useState(1);
@@ -20,6 +21,7 @@ const Search: React.FC = () => {
   };
 
   const BeersData = async () => {
+    setIsLoading(true);// waiting for data to loads
     await fetch(
       `https://api.punkapi.com/v2/beers/?page=${page}&per_page=${ItemPerPage}`
     )
@@ -33,6 +35,7 @@ const Search: React.FC = () => {
       .then((data) => {
         //console.log(data);
         setBeer(data);
+        setIsLoading(false); //false when the data is fetched 
       });
   };
 
@@ -69,21 +72,25 @@ const Search: React.FC = () => {
       {/* <p>Result: {results.length}</p> */}
 
       <ul className="cards">
-        {results.length > 0 ? (
-          results.map((beers: any, key: any) => (
-            <li className="cardsItem" key={key}>
-              <div className="card">
-                <Link to={`/singlebeer/${beers["id"]}`}>
-                  <img src={beers?.image_url} className="images" />
-                </Link>
-                <div className="cardContent">
-                  <h2 className="cardText">{beers?.name}</h2>
+        {!isLoading ? (
+          results.length > 0 ? (
+            results.map((beers: any, key: any) => (
+              <li className="cardsItem" key={key}>
+                <div className="card">
+                  <Link to={`/singlebeer/${beers["id"]}`}>
+                    <img src={beers?.image_url} className="images" />
+                  </Link>
+                  <div className="cardContent">
+                    <h2 className="cardText">{beers?.name}</h2>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))
+              </li>
+            ))
+          ) : (
+            <p className="noResult">Sorry, no result found for: {search}</p>
+          )
         ) : (
-          <p className="noResult">Sorry, no result found for: {search}</p>
+          <p>is loading....</p>
         )}
       </ul>
       <Pagination
